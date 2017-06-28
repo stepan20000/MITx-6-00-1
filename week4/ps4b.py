@@ -132,23 +132,29 @@ def playGame(wordList):
         elif userInpt == 'n':
             hand = dealHand(HAND_SIZE)
             handCopy = hand.copy()
-            userInpt2 = input('Enter u to have yourself play, c to have the computer play: ')
-            if userInpt2 == 'u':
-                playHand(hand, wordList, HAND_SIZE)
-            elif userInpt2 == 'c':
-                compPlayHand(hand, wordList, HAND_SIZE)
-            else:
-                print('Invalid command.')
-        elif userInpt == 'r':
-            if handCopy:
-                hand = handCopy
+            while True:
                 userInpt2 = input('Enter u to have yourself play, c to have the computer play: ')
                 if userInpt2 == 'u':
                     playHand(hand, wordList, HAND_SIZE)
+                    break
                 elif userInpt2 == 'c':
                     compPlayHand(hand, wordList, HAND_SIZE)
+                    break
                 else:
                     print('Invalid command.')
+        elif userInpt == 'r':
+            if handCopy:
+                hand = handCopy
+                while True:
+                    userInpt2 = input('Enter u to have yourself play, c to have the computer play: ')
+                    if userInpt2 == 'u':
+                        playHand(hand, wordList, HAND_SIZE)
+                        break
+                    elif userInpt2 == 'c':
+                        compPlayHand(hand, wordList, HAND_SIZE)
+                        break
+                    else:
+                        print('Invalid command.')
             else:
                 print('You have not played a hand yet. Please play a new hand first!')
 
